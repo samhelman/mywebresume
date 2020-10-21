@@ -1,5 +1,6 @@
 <div class="background"></div>
 <div class="title">
   <h1>Your Professional Resume In Minutes</h1>
-  <a class="btn" routerLink="/register">Get Started</a>
+  <a *ngIf="loggedIn" class="btn" routerLink="/dashboard">Get Started</a>
+  <a *ngIf="!loggedIn" class="btn" routerLink="/register">Get Started</a>
 </div>

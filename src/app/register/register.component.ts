@@ -55,7 +55,9 @@ export class RegisterComponent implements OnInit {
         }
       ).then(
         response => {
-          this.fire.setUpUserFirestore(response)
+          let uid = response['user']['uid']
+          let email = response['user']['email']
+          this.fire.setUpUserFirestore(uid, email)
           this.flashService.createFlashMessage(`Account created for '${creds.email}!`, 'success')
           this.router.navigate(['/login'])
         }

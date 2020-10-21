@@ -57,24 +57,23 @@ export class FireService {
     );
   }
 
-  setUpUserFirestore(user) {
+  setUpUserFirestore(uid: string, email: string) {
     var userData = {
-      info: <User>{
-        email: user.email,
-        username: user.uid
-      }
+        email: email,
+        uid: uid,
+        username: uid
     }
-    this.updateUser(user.uid, userData)
+    this.updateUser(uid, userData)
     var resumeData = {
       info: <Info>{
-        email: user.email,
-        username: user.uid,
+        email: email,
+        username: uid,
       },
       experience: Array<Experience>(),
       education: Array<Education>(),
       portfolio: Array<Portfolio>()
     }
-    this.updateUserResume(user.uid, resumeData)
+    this.updateUserResume(uid, resumeData)
   }
 
   updateUser(uid: string, data: object) {
