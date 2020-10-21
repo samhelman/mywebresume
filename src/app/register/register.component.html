@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="card">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+      <fieldset>
+        <div class="field">
+          <label for="email">Email:</label>
+          <input id="email" name="email" formControlName="email" (click)="resetErrors()" required>
+        </div>
+        <div class="field">
+          <label for="password">Password:</label>
+          <input id="password" name="password" type="password" formControlName="password" (click)="resetErrors()" required>
+        </div>
+        <div class="field">
+          <label for="confirm">Confirm Password:</label>
+          <input id="confirm" name="confirm" type="password" formControlName="confirm" (click)="resetErrors()" required>
+        </div>
+        <div *ngIf="errorMessage" class=errors>
+          <span>{{errorMessage}}</span>
+        </div>
+      </fieldset>
+      <input id="submit" name="submit" type="submit" class="submit" value="Sign Up">
+    </form>
+    <span class="signup">Already have an account? <a routerLink="/login">Log In</a></span>
+  </div>  
+</div>

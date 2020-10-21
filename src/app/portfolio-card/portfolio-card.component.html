@@ -1,0 +1,12 @@
+<div class="card">
+  <h1 class="blue">Portfolio</h1>
+  <div *ngFor="let project of portfolio" class="card-content">
+    <h4 class="black">{{project.projectName}}</h4>
+    <p *ngIf="project.description">{{project.description}}</p>
+    <div class="skills">
+      <p *ngFor="let skill of project.skills">{{skill}}</p>
+    </div>
+    <a href="{{project.link}}" target="_blank">Find Out More!</a>
+    <div class="border"></div>
+  </div>
+</div>

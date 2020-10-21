@@ -1,0 +1,175 @@
+<div class="flex-container">
+  <div class="flex-item card">
+    <ul>
+      <li class="resume-link" *ngIf="resumeUrl && data[0].info.name" routerLink="/{{username}}">
+        Your Web Resume
+      </li>
+      <li (click)="select('info')" [ngClass]="{'selected': selectedData == 'info'}">
+        Info
+      </li>
+      <li *ngIf="data" (click)="(!experienceIsOpen) ? openSection('experience') : null">
+        Experience 
+        <i *ngIf="!experienceIsOpen && data[0].experience.length > 0" class="material-icons icon" (click)="openSection('experience')">expand_more</i>
+        <i *ngIf="experienceIsOpen || data[0].experience.length == 0" class="material-icons icon" (click)="addItem('experience')">add</i>
+        <div *ngIf="experienceIsOpen" class="sub-list">
+          <li *ngFor="let item of data[0].experience; let i = index" [ngClass]="{'selected': selectedData == 'experience' && selectedIndex == i}" (click)="select('experience', i)">{{data[0].experience[i].companyName}}<i class="material-icons icon" (click)="removeItem('experience', i)">delete_outline</i></li>
+        </div>
+      </li>
+      <li *ngIf="data" (click)="(!educationIsOpen) ? openSection('education') : null">
+        Education
+        <i *ngIf="!educationIsOpen && data[0].education.length > 0" class="material-icons icon" (click)="openSection('education')">expand_more</i>
+        <i *ngIf="educationIsOpen || data[0].education.length == 0" class="material-icons icon" (click)="addItem('education')">add</i>
+        <div *ngIf="educationIsOpen" class="sub-list">
+          <li *ngFor="let item of data[0].education; let i = index" [ngClass]="{'selected': selectedData == 'education' && selectedIndex == i}" (click)="select('education', i)">{{data[0].education[i].schoolName}}<i class="material-icons icon" (click)="removeItem('education', i)">delete_outline</i></li>
+        </div>
+      </li>
+      <li *ngIf="data" (click)="(!portfolioIsOpen) ? openSection('portfolio') : null">
+        Portfolio
+        <i *ngIf="!portfolioIsOpen && data[0].portfolio.length > 0" class="material-icons icon" (click)="openSection('portfolio')">expand_more</i>
+        <i *ngIf="portfolioIsOpen || data[0].portfolio.length == 0" class="material-icons icon" (click)="addItem('portfolio')">add</i>
+        <div *ngIf="portfolioIsOpen" class="sub-list">
+          <li *ngFor="let item of data[0].portfolio; let i = index" [ngClass]="{'selected': selectedData == 'portfolio' && selectedIndex == i}" (click)="select('portfolio', i)">{{data[0].portfolio[i].projectName}}<i class="material-icons icon" (click)="removeItem('portfolio', i)">delete_outline</i></li>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedData" class="flex-item card preview">
+    <div *ngIf="selectedData == 'info'" >
+      <label class="profile-pic">
+        <div class="profile-pic-container">
+          <img *ngIf="picUrl" src="{{picUrl}}">
+          <img *ngIf="!picUrl" src="https://firebasestorage.googleapis.com/v0/b/mywebresume-d952a.appspot.com/o/profilePics%2Fdefaultpp.jpg?alt=media&token=af2f1166-fefa-450a-90c5-667d0fe8b4d7">
+          <img class="upload-icon" src="https://firebasestorage.googleapis.com/v0/b/mywebresume-d952a.appspot.com/o/upload.svg?alt=media&token=d1de0914-1337-49af-ba6e-b02c9e8cbc6d">
+        </div>
+        <input type="file" accept=".png,.jpg,.jpeg" (change)="uploadFile($event)">
+      </label>
+      <ul>
+        <li id="name">
+          <label>Name:
+            <input [(ngModel)]="name" placeholder="Name"/>
+          </label>
+        </li>
+        <li id="username">
+          <label>Username:
+            <input [(ngModel)]="username" placeholder="Username"/>
+          </label>
+        </li>
+        <li id="tagline">
+          <label>Tagline:
+            <input [(ngModel)]="tagline" placeholder="Tagline"/>
+          </label>
+        </li>
+        <li id="statement">
+          <label>Personal Statement:
+            <textarea class="textbox" [(ngModel)]="statement" placeholder="Personal Statement"></textarea>
+          </label>
+        </li>
+      </ul>
+      <div class="button-container">
+        <button class="primary" (click)="updateUser(true)">Update</button>
+        <button (click)="getUserData(selectedData, selectedIndex)">Cancel</button>
+      </div>
+    </div>
+
+    <div *ngIf="selectedData == 'experience'">
+      <ul>
+        <li id="">
+          <label>Company Name:
+            <input [(ngModel)]="companyName" placeholder="Company Name"/>
+          </label>
+        </li>
+        <li id="">
+          <label>Position:
+            <input [(ngModel)]="position" placeholder="Position"/>
+          </label>
+        </li>
+        <li id="">
+          <label>Description:
+            <textarea class="textbox" [(ngModel)]="companyDescription" placeholder="Description"></textarea>
+          </label>
+        </li>
+        <li id="">
+          <label class="add-skill">Skills:
+            <div>
+              <input [(ngModel)]="experienceSkill" placeholder="Add Skill"/><i class="material-icons" (click)="addSkill('experience', selectedIndex)">add</i>
+            </div>
+            <ul *ngIf="this.data[0][selectedData][selectedIndex].skills.length > 0">
+              <li *ngFor="let skill of experienceSkillsList; let j = index" [ngClass]="(greySkills.includes(skill))?'grey-skill':'skill'">
+                <div class="skill-container">
+                  <span>{{skill}}</span><i class="material-icons" (click)="removeSkill(j)">close</i>
+                </div>
+              </li>
+            </ul>
+          </label>
+        </li>
+      </ul>
+      <div class="button-container">
+        <button class="primary" (click)="updateItem('experience', selectedIndex)">Update</button>
+        <button (click)="getUserData(selectedData, selectedIndex)">Cancel</button>
+      </div>
+    </div>
+
+    <div *ngIf="selectedData == 'education'">
+      <ul>
+        <li id="">
+          <label>School Name:
+            <input [(ngModel)]="schoolName" placeholder="School Name"/>
+          </label>
+        </li>
+        <li id="">
+          <label>Qualification:
+            <input [(ngModel)]="qualification" placeholder="Qualification"/>
+          </label>
+        </li>
+        <li id="">
+          <label>Highlights:
+            <textarea class="textbox" [(ngModel)]="highlights" placeholder="Highlights"></textarea>
+          </label>
+        </li>
+      </ul>
+      <div class="button-container">
+        <button class="primary" (click)="updateItem('education', selectedIndex)">Update</button>
+        <button (click)="getUserData(selectedData, selectedIndex)">Cancel</button>
+      </div>
+    </div>
+
+    <div *ngIf="selectedData == 'portfolio'">
+      <ul>
+        <li id="">
+          <label>Project Name:
+            <input [(ngModel)]="projectName" placeholder="Project Title"/>
+          </label>
+        </li>
+        <li id="">
+          <label>Description:
+            <textarea class="textbox" [(ngModel)]="projectDescription" placeholder="Description"></textarea>
+          </label>
+        </li>
+        <li id="">
+          <label class="add-skill">Skills:
+            <div>
+              <input [(ngModel)]="portfolioSkill" placeholder="Add Skill"/><i class="material-icons" (click)="addSkill('portfolio', selectedIndex)">add</i>
+            </div>
+            <ul *ngIf="this.data[0][selectedData][selectedIndex].skills.length > 0">
+              <li *ngFor="let skill of portfolioSkillsList; let j = index" [ngClass]="{'grey-skill': greySkills.includes(skill), 'red-skill': removedSkillsQueue.includes(skill)}">
+                <div class="skill-container">
+                  <span>{{skill}}</span><i class="material-icons" (click)="removeSkill(j)">close</i>
+                </div>
+              </li>
+            </ul>
+          </label>
+        </li>
+        <li id="">
+          <label>Link:
+            <input [(ngModel)]="link" placeholder="eg. github.com/username/repo"/>
+          </label>
+        </li>
+      </ul>
+      <div class="button-container">
+        <button class="primary" (click)="updateItem('portfolio', selectedIndex)">Update</button>
+        <button (click)="getUserData(selectedData, selectedIndex)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

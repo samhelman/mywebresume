@@ -1,1 +1,123 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  background-color: #333;
+  font-family: 'Raleway', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  background-color: white;
+  color: #333;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+}
+
+.card, .card-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-content {
+  margin: 1rem auto;
+}
+
+.card-content .profile-pic {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  margin-bottom: .5rem;
+}
+
+.card-content .info > * {
+  margin: .3rem auto 0 auto;
+}
+
+.card-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: .1rem;
+}
+
+.card-content h6 {
+  font-size: .8rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+}
+
+.card-content .statement {
+  border-top: 1px solid #777;
+  border-bottom: 1px solid #777;
+  margin-top: .5rem;
+  padding: .5rem;
+  text-align: justify;
+}
+
+.black {
+  color: black;
+}
+
+.blue {
+  color: #2079c7;
+}
+
+p.muted  {
+  font-size: .8rem;
+}
+
+.errors {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.skills p {
+  color: white;
+  background-color: #e69138;
+  font-weight: bold;
+  padding: .3rem;
+  margin: .3rem;
+  border-radius: .3rem;
+}

@@ -1,0 +1,13 @@
+<div class="card">
+  <h1 class="blue">Experience</h1>
+  <div *ngFor="let work of experience" class="card-content">
+    <h4 class="black">{{work.companyName}}</h4>
+    <p class="muted">{{work.position}}</p>
+    <p *ngIf="work.description">{{work.description}}</p>
+    <div class="skills">
+      <div *ngFor="let skill of work.skills">
+        <p *ngIf="skill">{{skill}}</p>
+      </div>
+    </div>
+  </div>
+</div>

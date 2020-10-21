@@ -1,0 +1,12 @@
+<div *ngIf="!home" class="container">
+  <div *ngFor="let message of messages.reverse() | slice:0:5; let i = index"
+        [ngClass]="{
+                    'message': true,
+                    'info': message.style == 'info',
+                    'danger': message.style == 'danger',
+                    'success': message.style == 'success'
+                  }">
+    <p>{{message.message}}</p>
+    <i class="material-icons icon" (click)="dismissFlashMessage(i)">close</i>
+  </div>
+</div>

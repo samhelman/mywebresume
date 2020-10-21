@@ -1,0 +1,26 @@
+<div *ngIf="resume">
+  <div *ngIf="resume.portfolio.length > 0 || resume.education.length > 0 || resume.experience.length > 0" class="banner">
+    <div class="quick-links">
+      <h2>
+        Quick Links
+      </h2>
+      <ul>
+        <li *ngIf="resume.portfolio.length > 0" (click)="scrollTo('portfolio')">
+          <span>Portfolio</span>
+        </li>
+        <li *ngIf="resume.education.length > 0" (click)="scrollTo('education')">
+          <span>Education</span>
+        </li>
+        <li *ngIf="resume.experience.length > 0" (click)="scrollTo('experience')">
+          <span>Experience</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <app-info-card id="info" [info]="resume.info"></app-info-card>
+    <app-portfolio-card *ngIf="resume.portfolio.length > 0" id="portfolio" [portfolio]="resume.portfolio"></app-portfolio-card>
+    <app-education-card *ngIf="resume.education.length > 0" id="education" [education]="resume.education"></app-education-card>
+    <app-experience-card *ngIf="resume.experience.length > 0" id="experience" [experience]="resume.experience"></app-experience-card>
+  </div>
+</div>

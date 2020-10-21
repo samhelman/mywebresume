@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.flex-container {
+  margin: 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  min-width: 300px;
+  width: 45%;
+  margin: 1rem;
+  transition: all 1s ease;
+  display: block;
+  text-align: left;
+}
+
+ul {
+  list-style-type: none;
+  border: 1px solid lightgrey;
+  border-radius: .2rem;
+  height: 100%;
+}
+
+li {
+  position: relative;
+  cursor: pointer;
+  background-color: whitesmoke;
+  padding: .5rem;
+  margin: .2rem;
+  border: 1px solid transparent;
+  border-radius: .3rem;
+  transition: all .3s ease;
+}
+
+li label {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: lightgrey;
+  border: 1px solid slategrey;
+}
+
+.selected {
+  background-color: lightgrey;
+  border: 1px solid slategrey;
+}
+
+.preview .profile-pic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview .profile-pic-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.preview .profile-pic-container:hover > .upload-icon {
+  opacity: 1;
+}
+
+.preview .profile-pic-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.preview .profile-pic-container .upload-icon {
+  position: absolute;
+  background-color: rgba(255,255,255,.5);
+  padding: .5rem;
+  height: 50%;
+  width: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+input, textarea {
+  padding: .3rem;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+}
+
+textarea {
+  height: 10rem;
+  resize: none;
+}
+
+.profile-pic input {
+  height: 0;
+  opacity: 0;
+}
+
+li::after {
+  content: "";
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+#name:hover::after {
+  content: "Enter your full name. This will also be displayed in the tab title for your resume.";
+}
+
+#username:hover::after {
+  content: "Enter a username. This will make up your personal resume link, so make it professional and easy to remember!";
+}
+
+#tagline:hover::after {
+  content: "Your tagline should be a snappy one-liner that summarises your career experience.";
+}
+
+#statement:hover::after {
+  content: "Your personal statement should be a brief desciption of your skills, achivements and resume highlights.";
+}
+
+.preview button {
+  padding: .3rem;
+  margin: .3rem;
+  display: inline-block;
+  border-radius: .3rem;
+  border: 1px solid slategrey;
+  background-color: whitesmoke;
+  color: #333;
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.preview button:hover {
+  background-color: slategrey;
+  border: 1px solid #333;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.3);
+  color: whitesmoke;
+}
+
+.resume-link {
+  background-color: goldenrod;
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+
+.resume-link:hover {
+  background-color: slategrey;
+  border: 1px solid #333;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.icon {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.icon:hover {
+  color: white
+}
+
+.icon image {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+li a {
+  color: #333;
+}
+
+.add-skill div {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.add-skill input {
+  width: 100%;
+}
+
+.add-skill i {
+  border-radius: 50%;
+  margin: .25rem;
+}
+
+.add-skill i:hover {
+  cursor: pointer;
+  background-color: slategray;
+}
+
+.add-skill ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: .1rem;
+}
+
+.add-skill li {
+  background-color: goldenrod;
+  padding: 0 .3rem;
+  min-width: 80px;
+}
+
+.add-skill .skill-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-skill .skill-container .material-icons {
+  margin-right: 0;
+  font-size: 1rem;
+}
+
+.add-skill .skill {
+  opacity: 1;
+}
+
+.add-skill .grey-skill {
+  opacity: .5;
+}
+
+.add-skill .red-skill {
+  background-color: crimson;
+  color: white;
+}
+
+.sub-list {
+  margin-top: .5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container .primary {
+  background-color: goldenrod;
+}

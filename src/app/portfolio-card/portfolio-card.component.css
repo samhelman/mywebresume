@@ -1,0 +1,15 @@
+a {
+  background-color:  #2079c7;
+  color: white;
+  text-decoration: none;
+  padding: .3rem;
+  margin: .3rem;
+  border-radius: .3rem;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
+  transition: transform 1s ease;
+  font-size: .8rem;
+}
+
+a:hover {
+  transform: translateX(.5rem);
+}

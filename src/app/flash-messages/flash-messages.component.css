@@ -1,0 +1,53 @@
+.container {
+  margin: 0 20%;
+}
+
+.message {
+  position: relative;
+  background-color: goldenrod;
+  width: 100%;
+  padding: .5rem 2rem;
+  margin: .3rem 0;
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
+  text-align: center;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: .3rem;
+  padding: .1rem;
+  border-radius: 50%;
+}
+
+.icon:hover {
+  background-color: rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.info {
+  background-color: paleturquoise;
+  border-color: navy;
+  color: navy;
+}
+
+.danger {
+  background-color: indianred;
+  border-color: darkred;
+  color: darkred;
+}
+
+.success {
+  background-color: palegreen;
+  border-color: darkgreen;
+  color: darkgreen;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 16px;
+  }
+}

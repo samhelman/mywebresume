@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+/*navigation*/
+
+.nav-bar {
+  position: relative;
+  display: flex;
+  height: 5rem;
+  width: 100vw;
+  box-shadow: 0 0 10px 1px transparent;
+  transition: transform .6s ease, box-shadow .6s ease, background-color .6s ease;
+  z-index: 10;
+  font-family: 'PT Serif', serif;
+}
+
+.nav-bar:hover {
+  background-color: rgba(75,86,101,.2);
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
+}
+
+.title {
+  position: absolute;
+  left: 6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title a {
+  font-size: 2rem;
+}
+
+.nav-bar a:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.links {
+  position: absolute;
+  right: 6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-bar a {
+  display: block;
+  text-decoration: none;
+  line-height: 5rem;
+  height: 5rem;
+  padding: 0 2vw;
+  color: white;
+  transition: transform 1s ease;
+}
+
+.links li {
+  list-style-type: none;
+  display: inline-flex;
+  transition: background-color .75s ease;
+}
+
+.links li:hover {
+  background-color: rgba(0,0,0,.5);
+  cursor: pointer;
+}
+
+.fadeIn {
+  animation: fadeIn 1s forwards ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+
+  /*navigation*/
+
+  .title {
+    left: 0.5rem;
+  }
+
+  .links {
+    right: 0.5rem;
+  }
+
+}
+
+@media only screen and (max-width: 550px) {
+  .nav-bar {
+    height: initial;
+    display: block;
+    background-color: rgba(75,86,101,.2);
+    box-shadow: 0 0 5px 1px rgba(0,0,0,.5);
+  }
+
+  .title, .links {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    height: auto;
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: initial;
+  }
+
+  .links li {
+    display: flex;
+  }
+
+  .nav-bar a {
+    height: 3rem;
+    line-height: 3rem;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+}

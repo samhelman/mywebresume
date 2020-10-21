@@ -1,0 +1,10 @@
+<div class="card">
+  <h1 class="blue">Education</h1>
+  <div *ngFor="let school of education" class="card-content">
+    <div class="info">
+      <h4 class="black">{{school.schoolName}}</h4>
+      <h6 *ngIf="school.qualification">{{school.qualification}}</h6>
+      <p *ngIf="school.highlights">{{school.highlights}}</p>
+    </div>
+  </div>
+</div>

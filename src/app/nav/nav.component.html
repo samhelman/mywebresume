@@ -1,0 +1,24 @@
+<nav class="nav-bar">
+  <div class="title">
+    <a routerLink="/home">
+      MyWebResume
+    </a>
+  </div>
+  <ul class="links">
+    <li *ngIf="fire.user | async" [ngClass]="{'fadeIn': fire.user}">
+      <a routerLink="/dashboard">
+        My Dashboard
+      </a>
+    </li>
+    <li *ngIf="fire.user | async as user" [ngClass]="{'fadeIn': fire.user}">
+      <a (click)="fire.logout()">
+        Logout
+      </a>
+    </li>
+    <li *ngIf="!(fire.user | async)" [ngClass]="{'fadeIn': fire.user}">
+      <a routerLink="/login">
+        Login
+      </a>
+    </li>
+  </ul>
+</nav>

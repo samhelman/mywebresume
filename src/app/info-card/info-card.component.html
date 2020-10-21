@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-content">
+    <div>
+      <img class="profile-pic" *ngIf="info.profilePic" src="{{info.profilePic}}">
+      <img class="profile-pic" *ngIf="!info.profilePic" src="https://firebasestorage.googleapis.com/v0/b/mywebresume-d952a.appspot.com/o/profilePics%2Fdefaultpp.jpg?alt=media&token=af2f1166-fefa-450a-90c5-667d0fe8b4d7">
+    </div>
+    <div class="info">
+      <h1 class="black">{{info.name}}</h1>
+      <h6 *ngIf="info.email">{{info.email}}</h6>
+      <p *ngIf="info.tagline" class="blue"> {{info.tagline}}</p>
+    </div>
+    <div *ngIf="info.statement" class="statement">
+      <p>{{info.statement}}</p>
+    </div>
+  </div>
+</div>

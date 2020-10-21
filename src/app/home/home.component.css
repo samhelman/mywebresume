@@ -1,0 +1,85 @@
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  background: url(https://firebasestorage.googleapis.com/v0/b/mywebresume-d952a.appspot.com/o/main-background.jpg?alt=media&token=4bdc0424-ead2-4248-91bb-56d3f6db01c6) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 10vw;
+  transform: translate(0, -30%);
+  color: white;
+  background-color: rgba(75,86,101,.6);
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.9);
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 1rem;
+  transition: background-color .6s ease;
+}
+
+.title:hover {
+  background-color: rgba(75,86,101,.8);
+}
+
+.title * {
+  margin: .5rem;
+}
+
+.title h1 {
+  font-size: 3rem;
+}
+
+.title a {
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: .3rem;
+  background-color: goldenrod;
+  color: #333;
+  padding: .5rem;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.7);
+  cursor: pointer;
+  transition: all 1s ease;
+  text-decoration: none;
+}
+
+.title a:hover {
+  transform: translateX(.5rem) scale(1.05);
+  box-shadow: 0 0 20px 1px rgba(0,0,0,.7);
+}
+
+@media only screen and (max-width: 1050px) {
+  .title {
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    transform: translate(0, -75%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+
+  .title {
+    top: 1rem;
+    transform: none;
+  }
+}

@@ -1,0 +1,68 @@
+.card form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin: .5rem 0;
+}
+
+.field input {
+  padding: .25rem;
+}
+
+fieldset {
+  border: none;
+}
+
+.submit {
+  border: none;
+  font-size: 1rem;
+  border-radius: .3rem;
+  background-color: goldenrod;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.3);
+  color: #333;
+  padding: .3rem;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.submit:hover {
+  transform: scale(1.05);
+}
+
+.errors {
+  color: red;
+  font-size: 0.8rem;
+  margin: .5rem 0;
+}
+
+.signup {
+  font-size: 0.8rem;
+  margin-top: .5rem;
+}
+
+.container {
+  margin: 0 20%;
+}
+
+.container > * {
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 16px;
+  }
+
+  .container > * {
+    margin: 16px;
+  }
+}
